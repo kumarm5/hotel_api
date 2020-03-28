@@ -60,7 +60,6 @@ class UserProfileView(viewsets.ModelViewSet):
     queryset = User.objects.all()
 
     def get_queryset(self):
-        print(f'username is {self.request.user.username}')
         user = User.objects.filter(username=self.request.user.username)
         return user
 
