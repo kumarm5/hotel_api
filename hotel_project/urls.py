@@ -14,7 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from . import settings
 from django.urls import path, re_path, include
+from django.contrib.staticfiles.urls import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from rest_framework_swagger.views import get_swagger_view
 
@@ -26,5 +29,7 @@ urlpatterns = [
     path('auth/', include('user_auth.urls')),
     path('restaurant/', include('restaurant.urls')),
 ]
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'Administration'
