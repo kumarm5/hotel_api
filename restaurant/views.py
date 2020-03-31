@@ -14,12 +14,12 @@ from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 class RestaurantView(viewsets.ModelViewSet):
-    permission_class = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
     serializer_class = RestaurantSerializer
     queryset = RestaurantDetails.objects.all()
 
 
 class ProductView(viewsets.ModelViewSet):
-    permission_class = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
